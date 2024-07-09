@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+<style>
+    .innercntnt{
+        
+        margin-left: 40px;
+        margin-top: 40px;
+        text-align: center;
+    }
+    .carea{
+        background-color: white;
+        width: 40%;
+        margin-left: 30%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .carea:hover{
+        box-shadow: 0px 0px 9px 0px skyblue;
+    }
+    .img{
+        background-color: transparent;
+    }
+    .name{
+        background-color: transparent;
+    }
+    .price{
+        background-color: transparent;
+    }
+    .desc{
+        background-color: transparent;
+    }
+    .stock{
+        background-color: transparent;
+    }
+    .back{
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+    }
+    .buy{
+        background-color:green;
+        padding: 10px 30px;
+        font-size: 20px;
+        border-radius: 20px;
+        text-decoration: none;
+
+    }
+    .out{
+        background-color: red;
+        padding: 10px 30px;
+        font-size: 20px;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+    .back{
+        text-decoration: none;
+        background-color: white;
+        border: 1 grey;
+        padding: 10px 20px;
+        filter: brightness(120%);
+        color: black;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px 0px black;
+        font-weight: bold;
+        height: 4.5vh;
+    }
+    .buy{
+        text-decoration: none;
+        background-color:blanchedalmond;
+        border: 1 grey;
+        padding: 10px 20px;
+        filter: brightness(120%);
+        color: black;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px 0px black;
+    }
+    .back:hover{
+        color: black;
+        
+        text-decoration: none;
+    }
+    body{
+        margin-bottom: 30px;
+    }
+    #img{
+        box-shadow: 0px 0px 5px 0px black;
+        height: 50vh;
+    }
+    .lgo{
+        background-color: transparent;
+        margin-top: 1vh;
+    }
+    </style>
+<body>
+    
+        <nav class="navt" >
+            <a href="/viewproduct" class="back">back </a>
+        <a href="/logoutFun"  class="lgo" id=''><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        </nav>
+    <div class="innercntnt">
+        <div class="carea">
+    <img src="/static/media/{{data.img}}"  alt="" id="img" class="img">
+    <h1 class="name">{{data.productName}}</h1>
+    <h2 class="price">rs.{{data.price}}</h2>
+    <h3 class="desc">{{data.desc}}</h3>
+    <h2 class="stock">number  of stock available : {{data.stock}}</h2>
+    {% if data.stock > 0 %}
+    <a href="/buynow?id={{data.id}}" class="buy">buy now</a>
+    {% else %}
+    <a href="" class="out">out of stock</a>
+    {% endif %}
+        </div>
+    </div>
+    {% if messages %}
+    {% for m  in messages %}
+    <script>
+        alert("{{m}}")
+    </script>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

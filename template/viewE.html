@@ -1,0 +1,20 @@
+{% extends "cmnpage.html" %}
+{% block content %}
+<h1>add employee</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="enter your name" name="name" />
+    <input type="email" placeholder="enter your email here" name="email" />
+    <input type="number" placeholder="enter your age here" name="age" />
+    <input type="number" placeholder="enter your phn number here" name="phn" />
+    <textarea placeholder="address" name="address"></textarea>
+    <select name="department" id="">
+    {% for d in data %}
+        <option value="{{ d.id }}">{{ d.department }}</option>
+    {% endfor %}
+    </select>
+    <input type="submit" />
+</form>
+
+</div>
+{% endblock %}

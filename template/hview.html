@@ -1,0 +1,72 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookplanet</title>
+</head>
+<style>
+    *{
+        background-color: black;
+        color: white;
+    }
+    .innercntnt{
+        margin-left: 40px;
+        margin-top: 40px;
+        text-align: center;
+    }
+    .carea{
+        background-color: steelblue;
+        width: 25%;
+        margin-left: 40%;
+        padding: 20px;
+    }
+    .img{
+        background-color: transparent;
+    }
+    .name{
+        background-color: transparent;
+    }
+    .price{
+        background-color: transparent;
+    }
+    .desc{
+        background-color: transparent;
+    }
+    .stock{
+        background-color: transparent;
+    }
+    .back{
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: steelblue;
+        border-radius: 20px;
+    }
+    .buy{
+        background-color: red;
+        padding: 10px 30px;
+        font-size: 20px;
+        border-radius: 20px;
+        text-decoration: none;
+
+    }
+    </style>
+<body>
+    <nav>
+        <a href="/history" class="back"> back</a>
+    </nav>
+    <div class="innercntnt">
+        <div class="carea">
+    <img src="/static/media/{{data.img}}" height='400px' alt="" class="img">
+    <h1 class="name">{{data.productName}}</h1>
+    <h2 class="price">rs.{{data.price}}</h2>
+    <h3 class="desc">{{data.desc}}</h3>
+    <h2 class="stock">number  of stock available : {{data.stock}}</h2>
+    <a href="/buynow?id={{data.id}}" class="buy">buy now</a>
+        </div>
+    </div>
+    {% if message %}
+    {{message}}
+    {% endif %}
+</body>
+</html> {% endcomment %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .back{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 10px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            font-weight: bold;
+            height: 4.2vh;
+
+        }
+        .back:hover{
+            color: black;
+            
+            text-decoration: none;
+        }
+        .btnn{
+            padding: 10px 20px;
+            background-color: white;
+            border: 0;
+            box-shadow: 0px 0px 2px 0px black;
+            border-radius: 20px;
+            color: black;
+            text-decoration: none;
+            margin-left:1%
+        
+        }
+        table{
+            text-align: left;
+            margin-left: 20%;
+            margin-top: 6vh;
+        }
+        th,td{
+            padding: 20px 40px;
+        }
+        .lgo{
+            margin-top: 1vh;
+        }
+    </style>
+<body>
+    <nav class="navt" >
+        <a href="/empHome" class="back">back </a>
+        
+        <a href="/logoutFun"  class="lgo" id=''><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+    </nav>
+    <table border="1">
+        <tr>
+            <th>no.</th>
+            <th> customer name</th>
+            <th>email</th>
+            <th>age</th>
+            <th>phn</th>
+            <th>address</th>
+            <th>current status</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.email}}</td>
+            <td>{{d.age}}</td>
+            <td>{{d.phn}}</td>
+            <td>{{d.address}}</td>
+            <td>
+            {% if d.to_user.is_active %}
+            <a href="/activeS?id={{d.id}}&status=0">Make Inactive</a>
+            {% else %}
+            <a href="/activeS?id={{d.id}}&status=1">Make Active</a>
+            {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

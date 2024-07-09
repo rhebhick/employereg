@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+<style>
+    *{
+        font-family:'Times New Roman', Times, serif;
+    }
+
+    .content{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-top: 30px;
+        
+        
+    }
+    .ic{
+        box-shadow: 0px 0px 5px 0px white;
+        margin: 20px 40px;
+        height: 35vh;
+        padding:20px 40px;
+        
+        background-color: white;
+    }
+    .flex{
+        display: flex;
+    }
+    .material-symbols-outlined{
+        margin-top: 100px;
+        font-size: 50px;
+        margin-left: -140px;
+    }
+    .back{
+        width: 100px;
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: steelblue;
+        border-radius: 20px;
+        position: sticky;
+        top: 0%;
+    }
+    .imgg{
+        background-color: transparent;
+        box-shadow: 0px 0px 2px 0px black;
+    }
+    .pname{
+        background-color: transparent;
+    }
+    .price{
+        background-color: transparent;
+    }
+    .status{
+        background-color: transparent;
+    }
+
+    .dele{
+        background-color: transparent;
+    }
+    .material-symbols-outlined{
+        background-color: transparent;
+    }
+    .back{
+        text-decoration: none;
+        background-color: white;
+        border: 1 grey;
+        padding: 10px 20px;
+        filter: brightness(120%);
+        color: black;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px 0px black;
+        font-weight: bold;
+    }
+    .back:hover{
+        color: black;
+        
+        text-decoration: none;
+    }
+</style>
+<body>
+    <a href="/custHome" class="back">back</a>
+    <div class='content'>
+    {% for d in data %}
+    <div class="flex">
+    <div class="ic">
+    {% comment %} < href="/hview?id={{d.peroduct.id}}"> {% endcomment %}
+    <img src="/static/media/{{d.product.img}}" height='100px' class="imgg" alt="">
+    <h2 class="pname">{{d.product.productName}}</h2>
+    <h3 class="price">{{d.product.price}}</h3>
+    <h2 class="status">Delivery status - {{d.status}}</h2>
+
+    </div>
+    <div>
+        {% if d.status != 'Delivered' %}
+        <a href="/deleteorder?id={{d.id}}" class="dele"><span class="material-symbols-outlined">
+            delete
+            </span></a>
+            {% endif %}
+    </div>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>

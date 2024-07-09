@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .fillarea{
+            margin-top: 100px;
+        }
+        .submitt{
+            padding: 10px 20px;
+            background-color: white;
+            border: 0;
+            box-shadow: 0px 0px 2px 0px black;
+            border-radius: 20px;
+        }
+        .submitt:hover{
+            box-shadow: 0px 0px 6px 0px black
+        }
+        .back{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 10px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            font-weight: bold;
+            height: 4.2vh;
+
+        }
+        .back:hover{
+            color: black;
+            
+            text-decoration: none;
+        }
+        .lgo{
+            margin-top: 1vh;
+        }
+    </style>
+<body>
+    <nav class="navt" >
+        <a href="/empHome" class="back">back </a>
+
+        <a href="/logoutFun"  class="lgo" id=''><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        
+    </nav>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>add your product here</h1>
+        <div class="fillarea container">
+        <input type="text" name='pname' placeholder="enter your product name" class="form-control"> <br><br>
+        <input type="text"name='desc' placeholder="add a description" class="form-control"><br><br>
+        <input type="number" name="stock" placeholder="number of product you have" id=""  class="form-control"><br><br>
+        <input type="number" name='price' placeholder="price"  class="form-control"><br><br>
+        <input type="file" name="img" placeholder="addimage" alt="" style="margin-left: 43%;"  ><br><br>
+        </div>
+        <input type="submit" class="submitt"><br><br>
+    </form>
+    {% if message %} 
+        <script>
+            alert('{{ message }}');
+        </script>
+    {% endif %}
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .back{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 10px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            font-weight: bold;
+            height: 4.2vh;
+
+        }
+        .back:hover{
+            color: black;
+            
+            text-decoration: none;
+        }
+        .btnn{
+            padding: 10px 20px;
+            background-color: white;
+            border: 0;
+            box-shadow: 0px 0px 2px 0px black;
+            border-radius: 20px;
+            color: black;
+            text-decoration: none;
+            margin-left: 1%;
+        
+        }
+        .lgo{
+            margin-top: 1vh;
+        }
+    </style>
+<body>
+    <nav class="navt" >
+        <a href="/empHome" class="back">back </a>
+        
+        <a href="/logoutFun"  class="lgo" id=''><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+        
+    </nav>
+    {% for d in data %}
+    
+        <h3>productName - {{d.productName}}</h3>
+        <h4>description - {{d.desc}}</h4>
+        <img src="/static/media/{{d.img}}" alt="" height="60vh">
+        <h4>stock-{{d.stock}}</h4>
+        <h4>price-{{d.price}}</h4>
+        <a href="/ineditproduct?id={{d.id}}" class="btnn">edit</a>
+        <a href="/deleteproduct?id={{d.id}}" class="btnn">delete</a>
+        <hr>
+    </div>
+    {% endfor %}
+</body>
+</html>

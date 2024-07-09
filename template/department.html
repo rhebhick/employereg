@@ -1,0 +1,66 @@
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .back{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 10px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            height: 4.2vh;
+            
+        }
+        .back:hover{
+            color: black;
+            
+            text-decoration: none;
+        }
+        table{
+            text-align: left;
+            margin-left: 40%;
+            margin-top: 10vh;
+        }
+        th,td{
+            padding: 20px 40px;
+        }
+        nav{
+            opacity: 90%;
+        }
+    </style>
+<body>
+    <nav class="navt" >
+        <a href="/adminHome" class="back">back </a>
+        <a href="/addD" class="back">add department</a>
+    </nav>
+    
+    <table border="1">
+        {% for d in data %}
+        <tr>
+            <th>{{forloop.counter}}</th>
+            <td>{{d.department}}</td>
+            <td><a href="/delete?id={{d.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            <td><a href="/edit1?id={{d.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
+    

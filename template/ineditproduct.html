@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .back{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 10px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            font-weight: bold;
+            height: 4.2vh;
+        }
+        .back:hover{
+            color: black;
+            
+            text-decoration: none;
+        }
+        .subt{
+            text-decoration: none;
+            background-color: black;
+            border: 1 grey;
+            padding: 7px 14px;
+            filter: brightness(90%);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px white;
+            font-weight: bold;
+        }
+        .form-control{
+            width: 30%;
+            margin-left: 34.8%;
+            margin-bottom: 2vh;
+
+        }
+        .form{
+            margin-top: 5vh;
+        }
+        .drop{
+            background-color: white;
+            color: black;
+        }
+        #overflow{
+            text-overflow:ellipsis;
+        }
+        .fm{
+            margin-top: 3vh;
+        }
+        .lgo{
+            margin-top: 1vh;
+        }
+    </style>
+
+    <nav class="navt" >        
+        <a href="/editproduct" class="back">back </a>
+        
+        <a href="/logoutFun"  class="lgo" id=''><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+
+    </nav>
+    <div>
+        <form action="" method="post" enctype="multipart/form-data" class="fm" >
+            {% csrf_token %}
+        <input type="text" name="productName" value="{{data.productName}}" id="" class="form-control">
+        <input type="text" name='desc' value="{{data.desc}}" class="form-control" id='overflow'>
+        <input type="number" name='stock' value="{{data.stock}}" class="form-control">
+        <input type="number" name="price" value="{{data.price}}" class="form-control">
+        <input type="file" name='img' class="form-control">
+        <input type="submit" class="subt">
+    </form>
+</div>
+</body>
+</html>

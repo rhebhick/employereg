@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .backk{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 10px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            font-weight: bold;
+            height: 4.2vh;
+        }
+        .backk:hover{
+            color: black;
+            
+            text-decoration: none;
+        }
+        .thead{
+            text-align: center;
+        }
+        .td,tr{
+            border: 1 black;
+        
+        }
+        .lgo{
+        margin-top: 1vh;
+        }
+        </style>
+<body>
+
+<nav class="navt" >
+    <a href="/empHome" class="backk">back </a>
+
+    <a href="/logoutFun"  class="lgo" id=''><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+
+</nav>
+    <div>
+        <h1>purchased details</h1>
+        <table class="table table-striped" border="1">
+            <thead>
+            <tr>
+                <th scope="col">no.</th>
+                <th scope="col">customer name</th>
+                <th scope="col">product name</th>
+                <th scope="col">ordered date</th>
+                <th scope="col">status</th>
+                <th scope="col">change status</th>
+            </tr> 
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <th scope="row" >{{forloop.counter}}</th>
+                <td>{{d.customer.name}}</td>
+                <td>{{d.product.productName}}</td>
+                <td>{{d.date_of_purchase}}</td>
+                <td>{{d.status}}</td>
+                <td>
+                    {% if d.status == 'ordered' %}
+                    <a class="csbtn" href="/changeStatus?id={{d.id}}&status=Shipped">Mark as order shipped</a>
+                    {% elif d.status == 'Shipped' %}
+                    <a class="csbtn" href="/changeStatus?id={{d.id}}&status=Delivered">Mark as order delivered</a>
+                    {% endif %}
+                
+                </td>
+                    
+                
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

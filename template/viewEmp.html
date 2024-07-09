@@ -1,0 +1,90 @@
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        *{
+            text-align: center;
+        }
+        .backk{
+            text-decoration: none;
+            background-color: white;
+            border: 1 grey;
+            padding: 8px 20px;
+            filter: brightness(120%);
+            color: black;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px 0px black;
+            height: 4.2vh;
+        }
+        .backk:hover{
+            color: black;
+            text-decoration: none;
+        }
+        table{
+            text-align: left;
+            margin-left: 15%;
+            margin-top: 6vh;
+        }
+        th,td{
+            padding: 20px 40px;
+        }
+        nav{
+            opacity: 90%;
+        }
+        .navt{
+            display: flex;
+            justify-content:space-between;
+            border: 1 solid black;
+        }
+        .div{
+            margin-top: 2vh;
+        }
+    </style>
+<body>
+    <nav class="navt">
+        <div class="div">
+            <a href="/adminHome"  class="backk">back</a>
+        </div>
+        <div class="div"><a href="/employe" class="backk">add employe</a></div>
+    </nav>
+    <div>
+        <h1>employees</h1>
+        <table >
+            <tr>
+                <th></th>
+                <th>name</th>
+                <th>email</th>
+                <th>age</th>
+                <th>phn</th>
+                <th>address</th>
+                <th>department</th>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for d2 in data2 %}
+            <tr>
+            <td>{{forloop.counter}} . </td>
+            <td>{{d2.name}}</td>
+            <td>{{d2.email}}</td>
+            <td>{{d2.age}}</td>
+            <td>{{d2.phn}}</td>
+            <td>{{d2.address}}</td>
+            <td>{{d2.department.department}}</td>
+            <td><a href="/delete2?id={{d2.id}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            <td><a href="/edit2?id={{d2.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+</body>
+</html>

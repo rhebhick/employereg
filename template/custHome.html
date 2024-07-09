@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<c.css lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookplanet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="static/css/employe.css">
+</head>
+<style>
+    .head{
+        margin-top:3vh;
+
+    }
+    .material-symbols-outlined{
+        font-size: 15px;
+    }
+    .a{
+        color: black;
+    }
+    .form{
+        margin-left: 20%;
+    }
+    #icn{
+        background-color: transparent;
+        
+    }
+</style>
+<body>
+    <nav class="enav">
+        <a href="/logoutFun" class="btnn"><svg id='icn' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" id='icn' d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+            <path fill-rule="evenodd" id='icn' d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+        </svg></a>
+        <a href="/viewproduct" class="btnn">purchase here </a>
+        <a href="/history" class="btnn">purchase history</a>
+    <h1 class="head">Welcome {{user.name}}</h1>
+    <hr>
+    <form action="" method="post" class="form">
+        {% csrf_token %}
+        <h1> name : {{user.name}}</h1>
+        <h1>email : {{user.email}}</h1>
+        <h1>address : {{user.address}}</h1>
+        <h1>phn : {{user.phn}}</h1>
+        <h1>age : {{user.age}}</h1>
+        <h1>employe : {{user.employe.name}}</h1>
+        <a href="/cEdit?id={{user.id}}" class="btnn"><i class="fa fa-pencil" aria-hidden="true" id='a' style="background-color: transparent;"></i></a>
+        <a href="/cDele?id={{user.to_user.id}}" class="btnn"><span class="material-symbols-outlined" style="background-color: transparent;">
+            delete
+            </span></a>
+    </form>
+</body>
+</html>

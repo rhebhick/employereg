@@ -1,0 +1,78 @@
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: blanchedalmond;
+    color:black;
+}
+body{
+    background-color: blanchedalmond;
+}
+.navt{
+    width: 100%;
+    height: 6vh;
+    padding: 10px 20px;
+    font-size: 16px;
+    opacity: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    border: 1px solid black;
+    position: sticky;
+    top: 0%;
+}
+#a{
+    background-color: white;
+    box-shadow: 0px 0px 2px 0px black;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: rgb(19, 12, 1);
+    border-radius: 5px;
+    height: 3rem;
+    align-items: center;
+}
+.home{
+    font-weight: bold;
+    opacity: 90%;
+    transition: .5s;
+}
+
+#a:hover{
+    transform: scale(1.002,1.002);
+    box-shadow: 0px 0px 5px 0px black
+}
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height: 200px;
+    background-color: transparent;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+    .carousel-caption {
+    display: none;
+    }
+}
+.login{
+    padding-top: 1vh;
+}
+#transp{
+    background-color: transparent;
+}
+#white{
+    color: black;
+}
+.inpic{
+    color: black;
+}
+.inpic2{
+    color: black;
+
+}

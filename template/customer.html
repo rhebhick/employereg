@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+<body>
+    <nav class="navt" >        
+        <a href="/"  class="home" id='a'>back</a>
+        <a href="/login" class="login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+
+    </nav>
+<style>
+    *{
+        text-align: center;
+    }
+    .subt{
+        text-decoration: none;
+        background-color: black;
+        border: 1 grey;
+        padding: 7px 14px;
+        filter: brightness(90%);
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0px 0px 5px 0px white;
+        font-weight: bold;
+    }
+    .form-control{
+        width: 30%;
+        margin-left: 34.8%;
+        margin-bottom: 2vh;
+
+    }
+</style>
+<form action="" method="post">
+    {% csrf_token %}
+    <div>
+        <h1>customer registration</h1>
+        <input type="text" name="name" required placeholder="enter your name" id="" class="form-control">
+        <input type="email" name="email" required placeholder="email" id="" class="form-control">
+        <input type="number" name="age" placeholder="enter your age" id=""  class="form-control" required>
+        <input type="text" name="phn" placeholder="enter your phn number" pattern="{10}" max="10" id="" required class="form-control">
+        <textarea name="address" placeholder="address" id="" required class="form-control"></textarea>
+        <select name="employe" id="" class="form-control">
+            {% for d in data %}
+            <option value="{{d.id}}">{{d.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="password" name="password" placeholder="password" class="form-control">
+        {% comment %} <input type="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" 
+        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="password"> {% endcomment %}
+        <input type="submit" class="subt">
+        
+    </div>
+    
+</form>
+{%if message%}
+        <script>
+            alert('{{message}}');
+        </script>
+{%endif%}

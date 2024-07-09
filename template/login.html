@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>bookplanet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+    <style>
+        .cntnt{
+            text-align: center;
+            }
+            .loginn{
+                padding: 10px 20px;
+            background-color: white;
+            border: 0;
+            box-shadow: 0px 0px 2px 0px black;
+            border-radius: 20px;
+            }
+            .loginn:hover{
+                box-shadow: 0px 0px 6px 0px black;
+            }
+    </style>
+<body>
+    <nav class="navt" >
+        <a href="/"  class="home" id='a'>Back</a>
+        {% comment %} <a href="/login" class="login"><span class="glyphicon glyphicon-log-in"></span> Login</a> {% endcomment %}
+    </nav>
+<form action="" method="post">
+    {% csrf_token %}
+<div class="cntnt container">
+    <h1>login</h1>
+    <div class="col-4" style="width: 40%; margin: auto;">
+        <input type="text" name='username' placeholder="enter your email" class="form-control"> 
+        <br><br>
+        <input type="password" name='password' placeholder="enter your password"class="form-control">
+        <br><br>
+        <input type="submit" class="loginn">
+    </div>
+</div>
+</form>
+{%if msg%}
+    <script>
+        alert("{{ msg }}");
+    </script>
+{%endif%}

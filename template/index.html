@@ -1,0 +1,91 @@
+{% extends 'cmnpage.html' %}
+{% block content %}
+<style>
+  #sign_in{
+      border: 1px solid grey;
+      padding: 6px  15px;
+      background-color: transparent;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      text-shadow: 0px 0px 0px ;
+      filter: brightness(120%);
+  }
+  #ac{
+    background-color: transparent;
+  }
+</style>
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox" >
+          <div class="item active" id='white'>
+            <img src="/static/img/pexels-marta-dzedyshko-1042863-2067569.jpg" alt="Image"  />
+            <div class="carousel-caption" id='white'>
+              <h1 style="color: black;opacity: 80%;">discover your next read</h1> 
+              <a href="/customer" class="login" id="sign_in"><span class="glyphicon glyphicon-log-in" id='ac'></span> create account</a>
+              {% comment %} <p style="color:darkslategrey;">from all around the world</p> {% endcomment %}
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="/static/img/part2.jpg" alt="Image" />
+            <div class="carousel-caption">
+              <h3 style="color: black;">most demanding books</h3>
+              <p style="color:darkslategrey;">in affordable budget 😉</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" >
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" id='transp'></span>
+          <span class="sr-only" >Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" id='transp'></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="container text-center">
+        <h3>our latest release</h3><br />
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="/static/img/book2.jpg" class="img-responsive" style="width:100%" alt="Image" />
+            <p>CIRCE</p>
+          </div>
+          <div class="col-sm-4">
+            <img src="/static/img/book.webp" class="img-responsive" style="width:100%" alt="Image" />
+            <p>it end with us</p>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <p>Circe is a 2018 novel by American writer Madeline Miller. Set during the Greek Heroic Age, it is an adaptation of various Greek myths, most notably the Odyssey, as told from the perspective of the witch Circe.</p>
+            </div>
+            <div class="well">
+              <p>It Ends with Us is a romance novel by Colleen Hoover, published by Atria Books on August 2, 2016. Based on the relationship between her mother and father, Hoover described it as "the hardest book I've ever written."</p>
+            </div>
+          </div>
+        </div>
+      </div><br />
+
+      <footer class="container-fluid text-center">
+        <p><h3>about us</h3>
+          <ul>
+            <li>we are one of the most <b> trusted website</b>.</li>
+            <li>we always try to assure that all our customers are <b>satisfied</b> with our service</li>
+            <li>we can deliver <b>within 2 days</b> </li>
+            <li>address - building no. 68, buildtower,annamanada,thrissur,kerala </li>
+            <li>PIN-680741</li>
+          </ul>
+        </p>
+      </footer>
+    </body>
+  </html>
+{% endblock %}
